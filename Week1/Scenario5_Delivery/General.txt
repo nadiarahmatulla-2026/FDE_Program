@@ -1,0 +1,28 @@
+
+Week1-Thinking-Discipline-Primer
+> **Assumption:** [what you're taking as given]
+> **Hypothesis:** If [X is true], then [Y will happen], because [reasoning].
+> **How I'd test it:** [the coach session, prototype, or data probe that would confirm/refute]
+> **Confidence:** low / medium / high — and why.
+
+- **Problem statement & success metrics** — every hedged claim is lifted into the assumption log with a hypothesis and a test. *Good:* a reviewer sees exactly where your confidence is load-bearing. *Bad:* prose that sounds confident but quietly rests on three untested premises.
+
+- **Delegation analysis** — each boundary (fully agentic / agent-led / human-led) is justified with *why*, not just *what*. *Good:* you've named what makes a task safe to delegate fully, and what tacit knowledge or accountability keeps a task human-led. *Bad:* arbitrary splits you couldn't defend against a coach's "why there?"
+
+- **Agent specification** — precise enough that an AI coding agent wouldn't need to ask a clarifying question. Your closed build loop against Claude Code is how you test this directly. Every time the builder produces something unintended, you classify it: spec ambiguity (you own the fix), builder misread (the builder owns the fix), or unjustified addition (ask for rollback).
+
+- **Validation design** — you've named what "working" looks like in testable terms and what the most likely failure modes are. *Good:* failure modes tied to specific decisions in the spec. *Bad:* "we'll write tests" without specifying what behaviour they'd defend.
+
+- **Assumptions & unknowns** — at least 5 genuine unknowns, not filler. "I don't know" beats a plausible-sounding guess.
+
+
+## Self-check before Friday
+
+- Is my assumption log visible, numbered, and honest about confidence?
+- For each major claim across my five Gate 1 deliverables, can I point to either a test, a source, or an explicit assumption?
+- Did I use my coach sessions to move specific hypotheses, not just to chat?
+- Did I complete the closed build loop against Claude Code — and can I diagnose the gap between what I asked for and what got built?
+- Would a reviewer be able to challenge my thinking because I've exposed it, rather than in spite of hiding it?
+
+**The final outcome:** By the end of Week 1 you walk out with a spec for one feature or capability — precise enough that you can hand it to Claude Code and have it built. The spec is the deliverable; the closed build loop against Claude Code is how you pressure-test it. Everything else in the week — problem statement, delegation analysis, validation design, assumptions log — exists to make that spec sharp enough to survive contact with an AI builder.
+

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scenario 5 Defense: Patient Intake Agent (10 min)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+        
+        .slide-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .slide {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            padding: 60px 50px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            page-break-after: always;
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .slide-title {
+            font-size: 44px;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 15px;
+        }
+        
+        .slide-subtitle {
+            font-size: 28px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .bullet {
+            font-size: 18px;
+            margin: 12px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.5;
+            color: #333;
+        }
+        
+        .bullet:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+            font-weight: bold;
+        }
+        
+        .highlight-box {
+            background: #e8f4f8;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .warning {
+            color: #ff6b35;
+            font-weight: bold;
+        }
+        
+        .danger {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .grid-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        
+        .grid-box-title {
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        
+        .grid-box-content {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #666;
+        }
+        
+        .timer {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 14px;
+            background: #fff3cd;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: #856404;
+        }
+        
+        .column-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .column-2-item {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 4px;
+            border-left: 3px solid #0066cc;
+        }
+        
+        .column-2-title {
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .list-compact {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .print-only {
+            display: none;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .slide {
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+                page-break-after: always;
+            }
+            .print-only {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-container">
+
+<!-- SLIDE 1 -->
+<div class="slide">
+    <div class="timer">1:30</div>
+    <div class="slide-title">The Problem: 180 Intakes/Day, 4 People, Manual Process</div>
+    
+    <div class="column-2">
+        <div class="column-2-item">
+            <div class="column-2-title">Current State</div>
+            <div class="list-compact">
+                • 6 physicians, 2 locations<br>
+                • ~180 patients/day<br>
+                • 4-person front desk<br>
+                • All intake: manual
+            </div>
+        </div>
+        <div class="column-2-item">
+            <div class="column-2-title">What Goes Wrong</div>
+            <div class="list-compact">
+                • <span class="danger">Expired prior auths</span> missed<br>
+                • <span class="danger">Medication changes</span> not reviewed<br>
+                • Visit disruptions<br>
+                • Compliance gaps
+            </div>
+        </div>
+    </div>
+    
+    <div class="highlight-box">
+        <strong>Why It Matters:</strong> Not just "process automation," but specific operational pain. Physicians start visits blind.
+    </div>
+    
+    <div class="slide-number">SLIDE 1 / 10</div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+    <div class="timer">1:30</div>
+    <div class="slide-title">The Opportunity: Automate Mechanical, Keep Humans in Control</div>
+    
+    <div class="column-2">
+        <div class="column-2-item">
+            <div class="column-2-title">Agent Automates</div>
+            <div class="list-compact">
+                ✓ Appointment sync (15 min intervals)<br>
+                ✓ Questionnaire dispatch<br>
+                ✓ Insurance verification<br>
+                ✓ Prior-auth lookup<br>
+                ✓ Medication comparison<br>
+                ✓ Allergy retrieval<br>
+                ✓ Visit-reason routing
+            </div>
+        </div>
+        <div class="column-2-item">
+            <div class="column-2-title">Human Decides</div>
+            <div class="list-compact">
+                ✓ Medication significance?<br>
+                ✓ Allergy importance?<br>
+                ✓ Really urgent?<br>
+                ✓ Override escalations?<br>
+                ✓ All clinical judgment
+            </div>
+        </div>
+    </div>
+    
+    <div class="highlight-box">
+        <strong>Key Principle:</strong> Agent is a router and flagging system, not a clinician. Escalates immediately and loudly.
+    </div>
+    
+    <div class="slide-number">SLIDE 2 / 10</div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+    <div class="timer">1:30</div>
+    <div class="slide-title">The Delegation Boundary: Three Defensible Modes</div>
+    
+    <div class="grid-3">
+        <div class="grid-box">
+            <div class="grid-box-title">AGENT ALONE (7 tasks)</div>
+            <div class="grid-box-content">
+                • Deterministic<br>
+                • No clinical content<br>
+                • Example: Sync appointments, validate forms<br>
+                <strong style="color: #0066cc;">Why:</strong> Clear rules, no judgment
+            </div>
+        </div>
+        <div class="grid-box">
+            <div class="grid-box-title">AGENT + HUMAN (8 tasks)</div>
+            <div class="grid-box-content">
+                • Agent detects<br>
+                • Human confirms<br>
+                • Example: Flag med change, clinical staff reviews<br>
+                <strong style="color: #0066cc;">Why:</strong> Detection mechanical, judgment human
+            </div>
+        </div>
+        <div class="grid-box">
+            <div class="grid-box-title">HUMAN DECIDES (5 tasks)</div>
+            <div class="grid-box-content">
+                • No agent logic<br>
+                • Clinical only<br>
+                • Example: Urgency, significance<br>
+                <strong style="color: #0066cc;">Why:</strong> Clinical judgment cannot be automated
+            </div>
+        </div>
+    </div>
+    
+    <div class="highlight-box">
+        <strong>Principle:</strong> Each boundary is justified by the work itself, not arbitrary.
+    </div>
+    
+    <div class="slide-number">SLIDE 3 / 10</div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+    <div class="timer">1:30</div>
+    <div class="slide-title">The Spec Is Buildable: 10 FRs + 4 Entities + 3 Integrations</div>
+    
+    <div class="bullet"><strong>10 Functional Requirements</strong> (each with pseudocode + acceptance criteria + error handling)</div>
+    <div style="margin-left: 25px; font-size: 14px; color: #666; margin-bottom: 15px;">
+        FR1: Appointment Sync • FR2: Questionnaire • FR3: Insurance • FR4: Prior-Auth • FR5: Medications • FR6: Allergies • FR7: Visit-Reason • FR8: Readiness • FR9: Escalations • FR10: Audit
+    </div>
+    
+    <div class="bullet"><strong>4 Data Entities</strong> (all with state machines, enums, audit fields)</div>
+    <div style="margin-left: 25px; font-size: 14px; color: #666; margin-bottom: 15px;">
+        Appointment • IntakeWorkItem • EscalationEvent • AuditLog
+    </div>
+    
+    <div class="bullet"><strong>3 Integration Contracts</strong> (request/response formats, timeouts, retry logic)</div>
+    <div style="margin-left: 25px; font-size: 14px; color: #666; margin-bottom: 15px;">
+        athenahealth • Insurance Tool • Prior-Auth Rules
+    </div>
+    
+    <div class="highlight-box">
+        <strong>Result:</strong> An AI coding agent can start building immediately. No "what should we do if..." questions needed.
+    </div>
+    
+    <div class="slide-number">SLIDE 4 / 10</div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide">
+    <div class="timer">1:30</div>
+    <div class="slide-title">Safety Guardrails: 8 Hard Prohibitions</div>
+    
+    <div class="slide-subtitle">The system <span class="danger">must never</span>:</div>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+        <div class="bullet">1. Diagnose</div>
+        <div class="bullet">2. Perform clinical triage</div>
+        <div class="bullet">3. Recommend treatment</div>
+        <div class="bullet">4. Assess medication significance</div>
+        <div class="bullet">5. Assess allergy severity</div>
+        <div class="bullet">6. Infer prior-auth without rules</div>
+        <div class="bullet">7. Suppress escalations</div>
+        <div class="bullet">8. Fabricate data on failure</div>
+    </div>
+    
+    <div class="highlight-box" style="margin-top: 30px;">
+        <strong>Build Rule:</strong> If any temptation arises in code, reject it. Escalate or remove feature instead.
+    </div>
+    
+    <div class="highlight-box">
+        <strong>Enforcement:</strong> Boundary tests verify no clinical output in escalation contexts.
+    </div>
+    
+    <div class="slide-number">SLIDE 5 / 10</div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide">
+    <div class="timer">1:30</div>
+    <div class="slide-title">Validation: 10 Concrete Test Scenarios</div>
+    
+    <div class="bullet"><span class="success">V1 (Happy Path):</span> Routine visit → READY_FOR_VISIT, 0 escalations</div>
+    
+    <div class="bullet"><span class="warning">V2–V3 (Failure Modes):</span> Incomplete form, insurance timeout → Escalate, don't guess</div>
+    
+    <div class="bullet"><span class="danger">V4–V5 (Boundary Tests):</span> Urgent phrase, med change → Escalate, <strong>verify NO clinical output</strong></div>
+    
+    <div class="bullet"><span class="warning">V6–V7 (Edge Cases):</span> No rule match, allergy present → Escalate deterministically</div>
+    
+    <div class="bullet"><span class="success">V8 (Concurrency):</span> Sync same appointment twice → Idempotent (1 work item, not 2)</div>
+    
+    <div class="bullet"><span class="success">V9 (Audit):</span> All logs complete + immutable</div>
+    
+    <div class="bullet"><span class="success">V10 (Override):</span> Human resolves escalation → Readiness re-evaluates</div>
+    
+    <div class="highlight-box">
+        <strong>Why:</strong> Not just happy path. Edge cases, failure modes, and boundary enforcement proven in code.
+    </div>
+    
+    <div class="slide-number">SLIDE 6 / 10</div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide">
+    <div class="timer">1:30</div>
+    <div class="slide-title">Assumptions & Unknowns: Honest Risk Register</div>
+    
+    <div class="slide-subtitle">10 Assumptions (MEDIUM confidence)</div>
+    
+    <div class="grid-2">
+        <div class="grid-box">
+            <div class="grid-box-title">A1: athenahealth APIs exist</div>
+            <div class="grid-box-content">Impact: Core integration feasible</div>
+        </div>
+        <div class="grid-box">
+            <div class="grid-box-title">A3: Prior-auth rules structured</div>
+            <div class="grid-box-content">Impact: Automation possible</div>
+        </div>
+        <div class="grid-box">
+            <div class="grid-box-title">A5: Queues exist & monitored</div>
+            <div class="grid-box-content">Impact: Escalations actually resolved</div>
+        </div>
+        <div class="grid-box">
+            <div class="grid-box-title">+ 7 more...</div>
+            <div class="grid-box-content">Validation plan for each</div>
+        </div>
+    </div>
+    
+    <div class="slide-subtitle" style="margin-top: 25px;">8 Unknowns (require validation)</div>
+    <div class="bullet">U5: <span class="danger">HIPAA logging requirements</span> (compliance blocker if undefined)</div>
+    <div class="bullet">U6: Current baseline metrics (needed to set realistic targets)</div>
+    <div class="bullet">U1–U4, U7–U8: See full spec</div>
+    
+    <div class="slide-number">SLIDE 7 / 10</div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide">
+    <div class="timer">1:30</div>
+    <div class="slide-title">Success Metrics: Measurable Outcomes</div>
+    
+    <div class="bullet"><span class="success">Metric 1: Intake Completeness ≥95%</span><br>
+    <span style="margin-left: 25px; font-size: 14px; color: #666;">Physicians start visits with complete admin info</span></div>
+    
+    <div class="bullet"><span class="success">Metric 2: Missed Defects ≥50% reduction</span><br>
+    <span style="margin-left: 25px; font-size: 14px; color: #666;">Fewer expired prior auths, medication misses</span></div>
+    
+    <div class="bullet"><span class="success">Metric 3: Front-Desk Workload 30–40% reduction</span><br>
+    <span style="margin-left: 25px; font-size: 14px; color: #666;">Intake handling time per patient</span></div>
+    
+    <div class="bullet"><span class="danger">Metric 4: Clinical Boundary Violations = 0</span><br>
+    <span style="margin-left: 25px; font-size: 14px; color: #666;">Non-negotiable safety metric</span></div>
+    
+    <div class="bullet"><span class="success">Metric 5: Audit Logging = 100% coverage</span><br>
+    <span style="margin-left: 25px; font-size: 14px; color: #666;">Compliance requirement</span></div>
+    
+    <div class="highlight-box">
+        <strong>Not vague ("better").</strong> Specific (95%, 50%, 40%). Measurable before & after.
+    </div>
+    
+    <div class="slide-number">SLIDE 8 / 10</div>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide">
+    <div class="timer">1:30</div>
+    <div class="slide-title">Readiness Discipline: 7 Conditions, All Must Be TRUE</div>
+    
+    <div class="slide-subtitle" style="font-size: 20px; margin-bottom: 15px;">A case moves to READY_FOR_VISIT only if:</div>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; font-size: 15px;">
+        <div>✓ Questionnaire = COMPLETE</div>
+        <div>✓ Insurance = VERIFIED_ACTIVE</div>
+        <div>✓ Prior-Auth = VALID or NOT_REQUIRED</div>
+        <div>✓ Medications = No open escalations</div>
+        <div>✓ Allergies = No open escalations</div>
+        <div>✓ Visit Reason = ROUTINE or resolved</div>
+        <div>✓ No recent integration failures</div>
+    </div>
+    
+    <div class="highlight-box" style="margin-top: 20px; background: #ffe8e8; border-left-color: #dc3545;">
+        <strong>If ANY condition is false → HOLD_FOR_REVIEW</strong>
+    </div>
+    
+    <div class="highlight-box">
+        <strong>Key:</strong> Logic is deterministic, not opinionated. No subjective override of readiness. Humans resolve escalations; readiness re-evaluates automatically.
+    </div>
+    
+    <div class="slide-number">SLIDE 9 / 10</div>
+</div>
+
+<!-- SLIDE 10 -->
+<div class="slide">
+    <div class="timer">1:30</div>
+    <div class="slide-title">Closing: Three Core Principles</div>
+    
+    <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr; gap: 25px;">
+        <div style="padding: 20px; background: #e8f8f8; border-left: 4px solid #17a2b8; border-radius: 4px;">
+            <div style="font-weight: bold; font-size: 18px; color: #003366; margin-bottom: 10px;">1. Fail Closed, Not Open</div>
+            <div style="font-size: 16px; color: #555;">Missing data? Escalate. Integration timeout? Escalate. Ambiguous rule? Escalate. Never guess or assume success.</div>
+        </div>
+        
+        <div style="padding: 20px; background: #e8f8f8; border-left: 4px solid #17a2b8; border-radius: 4px;">
+            <div style="font-weight: bold; font-size: 18px; color: #003366; margin-bottom: 10px;">2. Automate Mechanical, Escalate Judgment</div>
+            <div style="font-size: 16px; color: #555;">Agent is a router and flagging system, not a clinician. Every escalation includes full context for human decision. Zero clinical judgment anywhere.</div>
+        </div>
+        
+        <div style="padding: 20px; background: #e8f8f8; border-left: 4px solid #17a2b8; border-radius: 4px;">
+            <div style="font-weight: bold; font-size: 18px; color: #003366; margin-bottom: 10px;">3. Audit Everything</div>
+            <div style="font-size: 16px; color: #555;">Every action logged with actor, timestamp, details. Logs immutable. If there's a question later, the audit trail answers it.</div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 35px; padding: 25px; background: #f0f9ff; border: 2px solid #0066cc; border-radius: 4px; text-align: center;">
+        <div style="font-size: 18px; color: #003366; font-weight: bold;">This isn't just a spec. It's a safety boundary written into code.</div>
+        <div style="font-size: 16px; color: #555; margin-top: 10px;">The agent does what's mechanical, escalates what's clinical,<br>and proves everything happened.</div>
+    </div>
+    
+    <div class="slide-number">SLIDE 10 / 10</div>
+</div>
+
+</div>
+
+<!-- PRINTING INSTRUCTIONS -->
+<div class="print-only" style="page-break-before: always; padding: 40px; text-align: center; margin-top: 100px;">
+    <h1>Instructions for Converting to PowerPoint</h1>
+    <p style="margin-top: 20px; font-size: 16px;">1. Open this HTML file in your browser</p>
+    <p style="font-size: 16px;">2. Print to PDF (Ctrl+P or Cmd+P)</p>
+    <p style="font-size: 16px;">3. In PowerPoint: Insert > Pictures > From File, add PDF as images</p>
+    <p style="font-size: 16px;">OR</p>
+    <p style="font-size: 16px;">Copy each slide's content and paste into PowerPoint manually</p>
+    <p style="margin-top: 30px; font-size: 14px; color: #666;">Recommended Colors: #003366 (dark blue), #0066cc (blue), #28a745 (green), #ff6b35 (orange), #dc3545 (red)</p>
+</div>
+
+</body>
+</html>

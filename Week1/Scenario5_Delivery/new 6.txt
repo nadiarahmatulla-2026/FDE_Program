@@ -1,0 +1,8 @@
+a reviewer-friendly artefact
+
+and a builder-friendly artefact
+
+HIPAA (Health Insurance Portability and Accountability Act) is a U.S. federal law that protects patients' health information and ensures privacy, security, and proper handling of medical data.
+
+
+
